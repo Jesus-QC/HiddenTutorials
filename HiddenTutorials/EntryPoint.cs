@@ -37,7 +37,7 @@ public class EntryPoint
 			case RoleTypeId.Tutorial:
 				Timing.CallDelayed(0.1f, () =>
 				{
-					ChangeAppearance(ev.Player, RoleTypeId.Spectator, Player.GetPlayers().Where(ply => ply.Role is RoleTypeId.Spectator && ply != ev.Player));
+					ChangeAppearance(ev.Player, RoleTypeId.Filmmaker, Player.GetPlayers().Where(ply => ply.Role is RoleTypeId.Spectator && ply != ev.Player));
 				});
 				break;
 
@@ -45,7 +45,7 @@ public class EntryPoint
 				Timing.CallDelayed(0.1f, () =>
 				{
 					foreach (Player ply in Player.GetPlayers().Where(ply => ply.Role is RoleTypeId.Tutorial && ply != ev.Player))
-						ChangeAppearance(ply, RoleTypeId.Spectator, new []{ev.Player});
+						ChangeAppearance(ply, RoleTypeId.Filmmaker, new []{ev.Player});
 				});
 				return;
 		}
