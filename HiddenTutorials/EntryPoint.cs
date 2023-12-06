@@ -85,5 +85,5 @@ public class EntryPoint
 		SendRoleAndPosition(spectator, target, RoleTypeId.Spectator, Vector3.zero);
 	}
 
-	public static bool IsWhitelisted(ReferenceHub referenceHub) => referenceHub.authManager.RemoteAdminGlobalAccess || referenceHub.serverRoles.RemoteAdmin;
+	public static bool IsWhitelisted(ReferenceHub referenceHub) => referenceHub.authManager.RemoteAdminGlobalAccess || referenceHub.serverRoles.RemoteAdmin || referenceHub.roleManager.CurrentRole.RoleTypeId is RoleTypeId.Overwatch;
 }
