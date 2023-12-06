@@ -34,36 +34,46 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="0Harmony, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\Lib.Harmony.2.2.2\lib\net48\0Harmony.dll</HintPath>
+        </Reference>
         <Reference Include="Assembly-CSharp">
-          <HintPath>..\..\Dependencies\Assembly-CSharp-Publicized.dll</HintPath>
+          <HintPath>$(SL_REFERENCES)\Assembly-CSharp-Publicized.dll</HintPath>
         </Reference>
         <Reference Include="Assembly-CSharp-firstpass">
-          <HintPath>..\..\Dependencies\Assembly-CSharp-firstpass.dll</HintPath>
+          <HintPath>$(SL_REFERENCES)\Assembly-CSharp-firstpass.dll</HintPath>
         </Reference>
         <Reference Include="Mirror">
-          <HintPath>..\..\Dependencies\Mirror-Publicized.dll</HintPath>
+          <HintPath>$(SL_REFERENCES)\Mirror-Publicized.dll</HintPath>
+        </Reference>
+        <Reference Include="NorthwoodLib">
+          <HintPath>..\..\..\Documents\Coding\SL_DEPS\NorthwoodLib.dll</HintPath>
         </Reference>
         <Reference Include="PluginAPI">
-          <HintPath>..\..\Dependencies\PluginAPI-Publicized.dll</HintPath>
+          <HintPath>$(SL_REFERENCES)\PluginAPI-Publicized.dll</HintPath>
         </Reference>
         <Reference Include="Pooling">
-          <HintPath>..\..\Dependencies\Pooling.dll</HintPath>
+          <HintPath>$(SL_REFERENCES)\Pooling.dll</HintPath>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
         <Reference Include="UnityEngine">
-          <HintPath>..\..\Dependencies\UnityEngine.dll</HintPath>
+          <HintPath>$(SL_REFERENCES)\UnityEngine.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
-          <HintPath>..\..\Dependencies\UnityEngine.CoreModule.dll</HintPath>
+          <HintPath>$(SL_REFERENCES)\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="EntryPoint.cs" />
+        <Compile Include="Patches\PositionSyncingPatch.cs" />
         <Compile Include="PluginConfig.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
