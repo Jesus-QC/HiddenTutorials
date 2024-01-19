@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using HiddenTutorials.API;
-using PlayerRoles;
 using PluginAPI.Core;
 using PluginAPI.Core.Attributes;
 using PluginAPI.Enums;
