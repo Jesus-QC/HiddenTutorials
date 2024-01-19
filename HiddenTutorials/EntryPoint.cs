@@ -1,7 +1,9 @@
 ﻿using HarmonyLib;
+using HiddenTutorials.API;
 using PlayerRoles;
 using PluginAPI.Core;
 using PluginAPI.Core.Attributes;
+using PluginAPI.Enums;
 using PluginAPI.Events;
 
 namespace HiddenTutorials;
@@ -22,8 +24,13 @@ public class EntryPoint
 			return;
         
 		_harmony.PatchAll();
+		EventManager.RegisterEvents(this);
 		Log.Raw($"<color=blue>Loading HiddenTutorials {Version} by Jesus-QC</color>");
 	}
-
-	public static bool IsWhitelisted(ReferenceHub referenceHub) => referenceHub.authManager.RemoteAdminGlobalAccess || referenceHub.serverRoles.RemoteAdmin || referenceHub.roleManager.CurrentRole.RoleTypeId is RoleTypeId.Overwatch;
+	
+	[PluginEvent(ServerEventType.RoundRestart)]
+	public void OnRoundRestart(RoundRestartEvent _)
+	{
+		HiddenTutorialsAPI.ClearData();
+	}
 }

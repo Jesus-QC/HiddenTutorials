@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
+using HiddenTutorials.API;
 using NorthwoodLib.Pools;
 using PlayerRoles;
 using PlayerRoles.Spectating;
@@ -37,10 +38,13 @@ public class VoiceChatPatch
     
     private static bool CheckProximity(VoiceModuleBase module, ReferenceHub speaker)
     {
+        if (HiddenTutorialsAPI.IsWhitelistedTutorial(speaker))
+            return false;
+        
         if (speaker.roleManager.CurrentRole.RoleTypeId != RoleTypeId.Tutorial)
             return false;
         
-        if (EntryPoint.IsWhitelisted(module.Owner))
+        if (HiddenTutorialsAPI.IsWhitelistedSpectator(module.Owner))
             return false;
 
         if (module.Role is not SpectatorRole spectatorRole)

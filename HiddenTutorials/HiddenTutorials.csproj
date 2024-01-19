@@ -67,6 +67,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="API\HiddenTutorialsAPI.cs" />
         <Compile Include="EntryPoint.cs" />
         <Compile Include="Patches\PositionSyncingPatch.cs" />
         <Compile Include="Patches\VoiceChatPatch.cs" />

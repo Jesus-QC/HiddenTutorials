@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
+using HiddenTutorials.API;
 using NorthwoodLib.Pools;
 using PlayerRoles;
 using PlayerRoles.FirstPersonControl.NetworkMessages;
@@ -33,7 +34,7 @@ public class PositionSyncingPatch
     
     private static Vector3 CheckTutorialPosition(Vector3 position, ReferenceHub tutorial, ReferenceHub spectator)
     {
-        if (EntryPoint.IsWhitelisted(spectator))
+        if (HiddenTutorialsAPI.IsWhitelistedSpectator(spectator) || HiddenTutorialsAPI.IsWhitelistedTutorial(tutorial))
             return position;
         
         if (tutorial.roleManager.CurrentRole.RoleTypeId != RoleTypeId.Tutorial)
