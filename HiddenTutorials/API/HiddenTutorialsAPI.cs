@@ -5,7 +5,14 @@ namespace HiddenTutorials.API;
 
 public static class HiddenTutorialsAPI
 {
+    /// <summary>
+    /// Tutorials that can be spectated by anyone.
+    /// </summary>
     public static readonly HashSet<ReferenceHub> WhitelistedTutorials = [];
+    
+    /// <summary>
+    /// Spectators that can spectate any tutorial.
+    /// </summary>
     public static readonly HashSet<ReferenceHub> WhitelistedSpectators = [];
     
     public static bool IsWhitelistedSpectator(ReferenceHub referenceHub)
