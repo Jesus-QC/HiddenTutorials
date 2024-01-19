@@ -47,7 +47,7 @@
           <HintPath>$(SL_REFERENCES)\Mirror-Publicized.dll</HintPath>
         </Reference>
         <Reference Include="NorthwoodLib">
-          <HintPath>..\..\..\Documents\Coding\SL_DEPS\NorthwoodLib.dll</HintPath>
+          <HintPath>$(SL_REFERENCES)\NorthwoodLib.dll</HintPath>
         </Reference>
         <Reference Include="PluginAPI">
           <HintPath>$(SL_REFERENCES)\PluginAPI-Publicized.dll</HintPath>
@@ -69,6 +69,7 @@
     <ItemGroup>
         <Compile Include="EntryPoint.cs" />
         <Compile Include="Patches\PositionSyncingPatch.cs" />
+        <Compile Include="Patches\VoiceChatPatch.cs" />
         <Compile Include="PluginConfig.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
