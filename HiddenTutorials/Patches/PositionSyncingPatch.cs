@@ -46,6 +46,6 @@ public class PositionSyncingPatch
         if (spectatorRole.SyncedSpectatedNetId != tutorial.netId && spectatorRole.SyncedSpectatedNetId != 0)
             return position;
 
-        return Vector3.zero;
+        return new Vector3(-10000,-10000, -10000);
     }
 }
